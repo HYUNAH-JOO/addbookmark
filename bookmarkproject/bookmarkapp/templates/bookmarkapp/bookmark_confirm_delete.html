@@ -1,5 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Delete</title>
+    <link href="2.css" type="text/css" rel="stylesheet">
+<style>
+    a{text-decoration: none;}	
+	*{
+		background-color:#e1e4ff;
+	}
+	.button{
+	background-color:#F06;
+	color:white;
+	border-radius:5px;
+	width:70px;
+	height:30px;
+	}
+</style>
+</head>
+
+
+<div class="wrap">
 <form action="" method="POST">
 {%csrf_token%}
 <div class="alert alert-danger">"{{object}}"를 정말 지우실껍니까,,?</div>
-<input type="submit" value="Delete" class = "btn btn-danger">     
+<br>
+<input type="submit" value="Delete" class = "button">  
 </form>
+</div>

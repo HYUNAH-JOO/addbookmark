@@ -4,8 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Bookmark</title>
+
 <style>
+*{
+	margin : 0 auto;
+	padding: 0;
+	list-style:none;
+	font-family:"Times New Roman";
+	line-height:40px;
+	font-size:15px;
+	background-color:#e1e4ff;
+}
+body, html{min-width:960px;}
+.title{
+	font-size:45px;
+	line-height:100px;
+	color:#6d7393;
+	text-align:center;
+}
+.wrapone{
+	width:960px;
+}
+.wrap{
+	width:960px;
+	height:2000px;
+	background-color:white;
+}
+.lazy{
+	background-color:#ff76a0;
+	color:white;
+	border-radius:5px;
+	width:100px;
+	height:40px;
+}
+.two{
+	background-color:#fcb1c9;
+	color:white;
+	border-radius:5px;
+	width:100px;
+	height:40px;
+}
+.three{
+	background-color:#fcb065;
+	color:#fcedde;
+	border-radius:5px;
+	width:60px;
+	height:40px;
+}
+.eight:hover{
+	color:red;
+}
+footer{
+	height:80px;
+	background-color:#aab6f9;
+	width:960px;
+	color:79797c;
+	overflow:hidden;
+}
+.footer{
+	background-color:#aab6f9;
+	text-align:right;
+}
     a{text-decoration: none;}
 
 
@@ -13,26 +73,29 @@
 </head>
 
 <body>
+	<header
     <div class ="btn-group">
-        <a href = "{% url 'add' %}" class = "btn btn-info">Add Bookmark</a>
+        <a href = "{% url 'add' %}" class = "btn btn-info"><div class="title">&nbsp;  Add Bookmark</div></a>
+        <div class="wrapone">If you want to add bookmark, clik the title.</div>
     </div>
-
+	</header>
     <p></p>
+    <div class="wrap">
     <table class = "table">
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Site</th>
-                <th scope="col">URL</th>
-                <th scope="col">Modify</th>
-                <th scope="col">Delete</th>
+                <th scope="col"><div class="lazy">Number</div></th>
+                <th scope="col"><div class="two">Site</div></th>
+                <th scope="col"><div class="two">URL</div></th>
+                <th scope="col"><div class="three">Modify</div></th>
+                <th scope="col"><div class="three">Delete</div></th>
             </tr>
         </thead>
         <tbody>
             {% for bookmark in object_list %}
             <tr>
                 <td>{{forloop.counter}}</td>
-                <td><a href="{% url 'detail' pk=bookmark.id %}">{{bookmark.site_name}}</a></td>
+                <td><a href="{% url 'detail' pk=bookmark.id %}"><div class="eight">{{bookmark.site_name}}</div></a></td>
                 <td><a href="{{bookmark.url}}" target="_blank">{{bookmark.url}}</a></td>
                 <td><a href="{% url 'update' pk=bookmark.id %}" class="btn btn-success btn-sm">Modify</a></td>
                 <td><a href="{% url 'delete' pk=bookmark.id %}" class="btn btn-danger btn-sm">Delete</a></td>
@@ -42,6 +105,11 @@
         </tbody>
             
     </table>
+    </div>
+    <footer>
+    &nbsp;  Add Bookmark<br>  
+    <div class="footer">Pusan National Unisversity Like Lion&nbsp; &nbsp; &nbsp;      </div>
+    </footer>
     
 </body>
 </html>
